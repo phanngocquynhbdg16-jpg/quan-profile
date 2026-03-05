@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #3e2f1c; /* NÂU ĐẬM CHỦ ĐẠO */
+    color: #f5e6d3; /* be sáng cho chữ */
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 10%;
+}
+
+.left {
+    max-width: 500px;
+}
+
+.left h1 {
+    font-size: 42px;
+}
+
+.left h1 span {
+    color: #e6c7a9; /* be nổi bật */
+}
+
+.left h2 {
+    font-weight: normal;
+    margin-top: -10px;
+    color: #d2b48c;
+}
+
+.left p {
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 25px;
+}
+
+.btn-primary {
+    background: #e6c7a9; /* be */
+    color: #3e2f1c; /* nâu */
+    padding: 10px 22px;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-right: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #f5e6d3;
+}
+
+.btn-outline {
+    border: 2px solid #e6c7a9;
+    color: #e6c7a9;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: #e6c7a9;
+    color: #3e2f1c;
+}
+
+/* Image */
+.right img {
+    width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Skills */
+.skills {
+    padding: 70px 10%;
+    text-align: center;
+    background: #4b3621; /* nâu sáng hơn 1 chút */
+}
+
+.skills h2 {
+    margin-bottom: 30px;
+}
+
+.skill-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill {
+    background: #e6c7a9;
+    color: #3e2f1c;
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+}
