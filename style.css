@@ -1,103 +1,129 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #3e2f1c; /* NÂU ĐẬM CHỦ ĐẠO */
-    color: #f5e6d3; /* be sáng cho chữ */
+body{
+
+font-family: Georgia, serif;
+background:#f5efe6;
+color:#1c1c1c;
+margin:0;
+line-height:1.7;
+
 }
 
-/* HERO */
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 80px 10%;
+
+/* HEADER */
+
+header{
+
+background:#5a3e36;
+color:white;
+text-align:center;
+padding:90px 20px;
+
 }
 
-.left {
-    max-width: 500px;
+header h1{
+
+margin:0;
+font-size:42px;
+
 }
 
-.left h1 {
-    font-size: 42px;
+header p{
+
+color:#e7d9cc;
 }
 
-.left h1 span {
-    color: #e6c7a9; /* be nổi bật */
+
+/* SECTION */
+
+section{
+
+max-width:850px;
+margin:auto;
+padding:50px 25px;
+
 }
 
-.left h2 {
-    font-weight: normal;
-    margin-top: -10px;
-    color: #d2b48c;
+
+/* TITLE */
+
+h2{
+
+border-left:6px solid #8b6b61;
+padding-left:10px;
+
 }
 
-.left p {
-    line-height: 1.6;
-    margin: 20px 0;
+
+/* PROFILE */
+
+.profile{
+
+background:#ffffff;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
 }
 
-/* Buttons */
-.buttons {
-    margin-top: 25px;
+
+/* BLOG CARD */
+
+.post{
+
+background:white;
+padding:28px;
+margin-top:25px;
+border-radius:12px;
+
+box-shadow:0 5px 12px rgba(0,0,0,0.08);
+
+transition:0.3s;
+
 }
 
-.btn-primary {
-    background: #e6c7a9; /* be */
-    color: #3e2f1c; /* nâu */
-    padding: 10px 22px;
-    text-decoration: none;
-    border-radius: 30px;
-    margin-right: 10px;
-    font-weight: bold;
-    transition: 0.3s;
+
+.post:hover{
+
+transform:translateY(-6px);
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+
 }
 
-.btn-primary:hover {
-    background: #f5e6d3;
+
+.post h3{
+
+margin-top:0;
+color:#5a3e36;
+
 }
 
-.btn-outline {
-    border: 2px solid #e6c7a9;
-    color: #e6c7a9;
-    padding: 8px 20px;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: 0.3s;
-}
 
-.btn-outline:hover {
-    background: #e6c7a9;
-    color: #3e2f1c;
-}
+/* FOOTER */
 
-/* Image */
-.right img {
-    width: 320px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
+footer{
 
-/* Skills */
-.skills {
-    padding: 70px 10%;
-    text-align: center;
-    background: #4b3621; /* nâu sáng hơn 1 chút */
-}
+background:#1c1c1c;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:50px;
 
-.skills h2 {
-    margin-bottom: 30px;
 }
+.avatar{
 
-.skill-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+display:block;
+
+margin-bottom:20px;
+
+border:4px solid #8b6b61;
+
 }
-
-.skill {
-    background: #e6c7a9;
-    color: #3e2f1c;
-    padding: 12px 22px;
-    border-radius: 25px;
-    font-weight: bold;
+body{
+font-family: "Segoe UI", sans-serif;
 }
