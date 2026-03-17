@@ -1,122 +1,275 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phan Ngọc Quân</title>
 
-<title>Blog cá nhân | Phan Ngọc Quân</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;scroll-behavior:smooth}
+
+body{
+background:linear-gradient(120deg,#020617,#0f172a,#020617);
+background-size:200% 200%;
+animation:bgMove 12s ease infinite;
+color:#e2e8f0;
+line-height:1.7
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.container{max-width:950px;margin:auto;padding:30px}
+
+header{
+text-align:center;
+padding:80px 20px;
+border-bottom:1px solid #1e293b;
+margin-bottom:40px;
+animation:fadeDown 1s ease
+}
+
+.portrait{
+width:200px;
+height:260px;
+margin:auto;
+border-radius:16px;
+overflow:hidden;
+border:4px solid #38bdf8;
+box-shadow:0 0 40px rgba(56,189,248,.8);
+margin-bottom:25px;
+}
+
+.portrait img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+header h1{font-size:40px}
+
+header p{color:#94a3b8;margin-top:8px}
+
+.card{
+background:#020617;
+padding:28px;
+margin-top:30px;
+border-radius:12px;
+border:1px solid #1e293b;
+transition:.4s;
+opacity:0;
+transform:translateY(50px)
+}
+
+.card.show{opacity:1;transform:translateY(0)}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:#38bdf8;
+box-shadow:0 10px 40px rgba(0,0,0,.6)
+}
+
+.blog p{margin-bottom:15px}
+
+.childhood{text-align:center}
+
+.childhood img{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+margin-top:15px;
+border:3px solid #38bdf8;
+box-shadow:0 0 20px rgba(56,189,248,.6);
+}
+
+.skill{margin:18px 0}
+
+.bar{
+height:10px;
+background:#1e293b;
+border-radius:6px;
+overflow:hidden;
+margin-top:5px
+}
+
+.bar div{height:100%;background:#38bdf8}
+
+.timeline-item{
+background:#0f172a;
+padding:15px;
+border-radius:8px;
+margin:10px 0
+}
+
+.contact{text-align:center}
+
+.contact a{color:#38bdf8;font-size:18px;text-decoration:none}
+
+.social a{
+margin:10px;
+color:#94a3b8;
+font-size:26px;
+transition:.3s
+}
+
+.social a:hover{
+color:#38bdf8;
+transform:scale(1.2)
+}
+
+.map iframe{border-radius:10px}
+
+footer{
+text-align:center;
+margin-top:60px;
+padding:30px;
+color:#94a3b8
+}
+
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
 
-<h1>Phan Ngọc Quân</h1>
+<div class="portrait">
+<img src="avatar.jpg">
+</div>
 
-<p>Một góc nhỏ để viết về cuộc sống và những suy nghĩ của tôi</p>
+<h1>Phan Ngọc Quân</h1>
+<p>Developer - Event - Shipper cho mẹ</p>
 
 </header>
 
+<div class="container">
 
+<div class="card">
+<h2>👤 Thông tin cá nhân</h2>
+<p><b>Ngày sinh:</b> 02 / 09 / 2006</p>
+<p><b>Nơi sinh:</b> TP.HCM (Bình Dương cũ)</p>
+<p><b>Quê quán:</b> Nghệ An - Thái Bình</p>
+</div>
 
-<section class="profile">
+<div class="card blog">
+    <h2>📝 Một chút về tôi</h2>
 
-<h2>Thông tin</h2>
+<p>Xin chào, nếu bạn đang đọc những dòng này thì có lẽ bạn vừa ghé qua blog cá nhân nhỏ của tôi.</p>
 
-<img src="pppp.jpg" class="avatar">
+<p>Tôi là Phan Ngọc Quân. Nếu phải mô tả ngắn gọn về bản thân thì chắc chỉ có thể nói rằng tôi là một người khá khó đoán. Có lúc tôi hướng nội, thích ở một mình và làm việc với máy tính. Nhưng cũng có lúc tôi lại hướng ngoại và có thể nói chuyện rất thoải mái với những người thân thiết.</p>
 
-<ul>
+<p>Với người lạ tôi thường khá trầm và ít nói. Không phải vì khó gần, chỉ đơn giản là tôi cần thời gian để cảm thấy thoải mái hơn khi nói chuyện. Nhưng khi đã thân rồi thì tôi có thể nói khá nhiều và đôi khi cũng hơi khùng một chút.</p>
 
-<li><b>Tên:</b> Phan Ngọc Quân</li>
-<li><b>Ngày sinh:</b> 02/09/2006</li>
-<li><b>Nơi sống:</b> TPHCM</li>
-<li><b>Quê quán:</b> Nghệ An & Thái Bình</li>
+<p>Tôi thích sự chỉnh chu, đặc biệt là trong lời nói và cách cư xử. Tôi tin rằng cách mình nói chuyện với người khác cũng thể hiện rất nhiều về con người của mình.</p>
 
-</ul>
+<p>Tôi thích chơi thể thao, thích hát dù không chắc là hát hay, và thỉnh thoảng cũng thích vào bếp nấu ăn. Món ăn tôi thích nhất là bún bò Huế. Ngoài ra tôi cũng biết làm việc nhà vì tôi nghĩ đó là một kỹ năng cơ bản.</p>
 
-</section>
+<p>Gia đình của tôi không phải lúc nào cũng êm ấm như nhiều gia đình khác. Nhưng chính vì vậy mà tôi càng mong sau này có thể xây dựng một gia đình thật sự ấm áp cho riêng mình.</p>
 
+<p>Còn về gu bạn gái thì thật ra tôi không có tiêu chuẩn cụ thể nào cả. Miễn là thích là được. Nhưng điều tôi trân trọng nhất là một cô gái yêu tôi và vẫn được là chính mình khi ở bên cạnh tôi.</p>
 
-
-<section class="about">
-
-<h2>Về tôi</h2>
-
-<p>
-Xin chào, tôi là Phan Ngọc Quân. Tôi sinh ngày 2 tháng 9 năm 2006 và hiện đang sống tại Thành phố Hồ Chí Minh. Gia đình tôi có quê gốc ở Nghệ An và Thái Bình, hai vùng đất luôn mang nhiều ý nghĩa đối với tôi.
-</p>
-
-<p>
-Tôi lớn lên trong một gia đình bình thường, nơi những điều giản dị trong cuộc sống luôn được trân trọng. Gia đình và những người xung quanh đã ảnh hưởng rất nhiều đến cách tôi nhìn nhận cuộc sống.
-</p>
-
-<p>
-Tôi thích quan sát những điều nhỏ bé trong cuộc sống hằng ngày, những buổi trò chuyện với người thân, những khoảnh khắc yên tĩnh, hay những lúc suy nghĩ về tương lai và con đường của mình.
-</p>
-
-<p>
-Blog này là một nơi nhỏ để tôi ghi lại những suy nghĩ, cảm nhận và những điều tôi trải nghiệm trong cuộc sống.
-</p>
-
-</section>
-
-
-
-<section class="blog">
-
-<h2>Bài viết</h2>
-
-
-<div class="post">
-
-<h3>Vì sao tôi tạo blog này</h3>
-
-<p>
-Tôi tạo blog này đơn giản chỉ để có một nơi ghi lại suy nghĩ của mình. Cuộc sống có rất nhiều khoảnh khắc nhỏ mà đôi khi chúng ta dễ dàng quên đi. Viết lại chúng giúp tôi nhìn lại bản thân và hiểu mình hơn.
-</p>
+<p>Tôi không phải là một người quá đặc biệt, cũng không phải người giỏi nhất trong bất cứ điều gì. Tôi chỉ là một người đang cố gắng từng ngày để trở nên tốt hơn một chút so với ngày hôm qua.</p>
 
 </div>
 
+<div class="card childhood">
+<h2>📷 Một góc nhỏ tuổi thơ</h2>
+<p>Một tấm ảnh lúc nhỏ của tôi.</p>
+<img src="childhood.jpg">
+</div>
 
+<div class="card">
+<h2>🎯 Kỹ năng</h2>
 
-<div class="post">
-
-<h3>Tuổi 19 và những suy nghĩ</h3>
-
-<p>
-Ở tuổi này, tôi nghĩ nhiều hơn về tương lai. Có lúc tôi cảm thấy mọi thứ rất rõ ràng, nhưng cũng có lúc lại thấy mọi thứ khá mơ hồ. Có lẽ đó là một phần bình thường của quá trình trưởng thành.
-</p>
+<div class="skill">Developer<div class="bar"><div style="width:80%"></div></div></div>
+<div class="skill">Event<div class="bar"><div style="width:70%"></div></div></div>
+<div class="skill">Cooking<div class="bar"><div style="width:60%"></div></div></div>
+<div class="skill">Housework<div class="bar"><div style="width:90%"></div></div></div>
 
 </div>
 
+<div class="card">
+<h2>🧠 Timeline</h2>
 
-
-<div class="post">
-
-<h3>Những điều giản dị</h3>
-
-<p>
-Đôi khi những điều khiến tôi cảm thấy bình yên nhất lại rất đơn giản: một buổi tối yên tĩnh, một cuộc trò chuyện với gia đình, hoặc chỉ là vài phút ngồi suy nghĩ về cuộc sống.
-</p>
+<div class="timeline-item">2006 - Sinh ra</div>
+<div class="timeline-item">2020 - Bắt đầu học công nghệ</div>
+<div class="timeline-item">2023 - Làm dev</div>
+<div class="timeline-item">2026 - Tạo blog cá nhân</div>
 
 </div>
 
-</section>
+<div class="card contact">
+    <h2>📬 Liên hệ</h2>
 
+<p>
+<a href="mailto:phanquan.work@gmail.com">
+<i class="fa-solid fa-envelope"></i> phanquan.work@gmail.com
+</a>
+</p>
 
+<div class="social">
+
+<a href="https://www.facebook.com/denisphan.029" target="_blank">
+<i class="fab fa-facebook"></i>
+</a>
+
+<a href="https://www.tiktok.com/@_user20906?_r=1&_t=ZS-94lXRDL9lRP" target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+</div>
+
+</div>
+
+<div class="card map">
+
+<h2>📍 Vị trí hiện tại</h2>
+
+<iframe width="100%" height="300" src="https://maps.google.com/maps?q=binh%20duong&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+</div>
+
+</div>
 
 <footer>
 
 <p>© 2026 Phan Ngọc Quân</p>
+<p>Built with code</p>
 
 </footer>
 
+<script>
 
-<script src="script.js"></script>
+const cards=document.querySelectorAll(".card");
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+});
+
+cards.forEach(card=>{
+observer.observe(card)
+});
+
+</script>
 
 </body>
 </html>
