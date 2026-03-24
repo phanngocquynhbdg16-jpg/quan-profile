@@ -5,285 +5,532 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phan Ngọc Quân</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script>
+hljs.highlightAll();
+</script>
 
 <style>
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;scroll-behavior:smooth}
-
 body{
-background:linear-gradient(120deg,#020617,#0f172a,#020617);
-background-size:200% 200%;
-animation:bgMove 12s ease infinite;
-color:#e2e8f0;
-line-height:1.7
+margin:0;
+font-family:Segoe UI, sans-serif;
+background:#020617;
+color:white;
+scroll-behavior:smooth;
 }
 
-@keyframes bgMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+.light{
+background:#f1f5f9;
+color:black;
+}
+.light section{
+background:white;
 }
 
-.container{max-width:950px;margin:auto;padding:30px}
-
-header{
-text-align:center;
-padding:80px 20px;
-border-bottom:1px solid #1e293b;
-margin-bottom:40px;
-animation:fadeDown 1s ease
+/* Matrix */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
 }
 
-.portrait{
-width:200px;
-height:260px;
-margin:auto;
-border-radius:16px;
-overflow:hidden;
-border:4px solid #38bdf8;
-box-shadow:0 0 40px rgba(56,189,248,.8);
-margin-bottom:25px;
-}
-
-.portrait img{
+/* Loader */
+#loader{
+position:fixed;
 width:100%;
 height:100%;
-object-fit:cover;
-}
-
-header h1{font-size:40px}
-
-header p{color:#94a3b8;margin-top:8px}
-
-.card{
 background:#020617;
-padding:28px;
-margin-top:30px;
-border-radius:12px;
-border:1px solid #1e293b;
-transition:.4s;
-opacity:0;
-transform:translateY(50px)
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+font-size:30px;
+color:#38bdf8;
 }
 
-.card.show{opacity:1;transform:translateY(0)}
-
-.card:hover{
-transform:translateY(-6px);
-border-color:#38bdf8;
-box-shadow:0 10px 40px rgba(0,0,0,.6)
+/* Scroll progress */
+#progress{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:#38bdf8;
+width:0%;
+z-index:2000;
 }
 
-.blog p{margin-bottom:15px}
-
-.childhood{text-align:center}
-
-.childhood img{
-width:180px;
-height:180px;
+/* Cursor */
+.cursor{
+position:fixed;
+width:15px;
+height:15px;
+background:#38bdf8;
 border-radius:50%;
+pointer-events:none;
+}
+
+/* Navbar */
+nav{
+position:fixed;
+width:100%;
+top:0;
+background:rgba(2,6,23,.8);
+backdrop-filter:blur(10px);
+padding:15px;
+text-align:center;
+z-index:1000;
+}
+nav a{
+color:#38bdf8;
+margin:15px;
+text-decoration:none;
+}
+
+/* Hero */
+.hero{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:60px;
+padding:120px 10% 80px;
+flex-wrap:wrap;
+}
+.hero-right img{
+width:320px;
+height:440px;
 object-fit:cover;
-margin-top:15px;
+border-radius:20px;
 border:3px solid #38bdf8;
-box-shadow:0 0 20px rgba(56,189,248,.6);
+box-shadow:0 0 30px rgba(56,189,248,.8);
 }
 
-.skill{margin:18px 0}
-
-.bar{
-height:10px;
-background:#1e293b;
-border-radius:6px;
-overflow:hidden;
-margin-top:5px
+/* Code box */
+.code-box{
+background:#0d1117;
+border-radius:10px;
+padding:15px;
+margin-top:20px;
 }
 
-.bar div{height:100%;background:#38bdf8}
+/* Sections */
+section{
+max-width:1100px;
+margin:40px auto;
+padding:30px;
+background:rgba(15,23,42,.6);
+backdrop-filter:blur(10px);
+border-radius:15px;
+transition:0.3s;
+}
+section:hover{
+box-shadow:0 0 25px rgba(56,189,248,.3);
+}
 
+/* Fade animation */
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:1s;
+}
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Timeline + Skills */
+.timeline-skill{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+}
+.timeline-box, .skill-box{
+flex:1;
+min-width:300px;
+background:#0f172a;
+padding:20px;
+border-radius:12px;
+}
 .timeline-item{
+border-left:3px solid #38bdf8;
+padding-left:15px;
+margin-bottom:15px;
+}
+.skills span{
+display:inline-block;
+background:#38bdf8;
+color:black;
+padding:8px 14px;
+margin:5px;
+border-radius:8px;
+}
+
+/* Projects */
+.projects{
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+justify-content:center;
+}
+.project-card{
 background:#0f172a;
 padding:15px;
+border-radius:12px;
+width:280px;
+text-align:center;
+transition:0.3s;
+}
+.project-card img{
+width:100%;
+height:160px;
+object-fit:cover;
 border-radius:8px;
-margin:10px 0
+}
+.project-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(56,189,248,.5);
 }
 
-.contact{text-align:center}
-
-.contact a{color:#38bdf8;font-size:18px;text-decoration:none}
-
-.social a{
-margin:10px;
-color:#94a3b8;
-font-size:26px;
-transition:.3s
+/* Childhood + Bank */
+.personal-container{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+justify-content:center;
+align-items:center;
+}
+.childhood-img{
+width:200px;
+height:200px;
+object-fit:cover;
+border-radius:15px;
+border:3px solid #38bdf8;
+box-shadow:0 0 20px rgba(56,189,248,.7);
+}
+.bank-card{
+width:340px;
+height:200px;
+background:linear-gradient(135deg,#0ea5e9,#22c55e);
+border-radius:20px;
+padding:20px;
+color:white;
+box-shadow:0 0 30px rgba(0,0,0,0.6);
+position:relative;
+}
+.bank-number{
+font-size:22px;
+letter-spacing:3px;
+margin-top:50px;
+}
+.bank-name{
+position:absolute;
+bottom:20px;
+left:20px;
+}
+.bank-holder{
+position:absolute;
+bottom:20px;
+right:20px;
 }
 
-.social a:hover{
-color:#38bdf8;
-transform:scale(1.2)
+/* Tech stack */
+.tech{
+text-align:center;
 }
 
-.map iframe{border-radius:10px}
+/* Terminal */
+.terminal{
+background:#000;
+color:#0f0;
+padding:20px;
+font-family:monospace;
+border-radius:10px;
+}
 
+/* Footer */
 footer{
 text-align:center;
-margin-top:60px;
-padding:30px;
-color:#94a3b8
+padding:20px;
+color:gray;
 }
 
-@keyframes fadeDown{
-from{opacity:0;transform:translateY(-40px)}
-to{opacity:1;transform:translateY(0)}
+/* Back to top */
+#topBtn{
+position:fixed;
+bottom:30px;
+left:30px;
+background:#38bdf8;
+color:black;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
 }
-
 </style>
 </head>
 
 <body>
 
-<header>
+<canvas id="matrix"></canvas>
+<div id="loader">Loading...</div>
+<div id="progress"></div>
+<div class="cursor"></div>
 
-<div class="portrait">
+<nav>
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<button onclick="toggleTheme()">Mode</button>
+</nav>
+
+<header class="hero">
+<div>
+<h1 class="typing"></h1>
+<p>Developer | Event | Shipper for Mom</p>
+
+<div class="code-box">
+<pre><code class="language-javascript">
+const Quan = {
+ name: "Phan Ngoc Quan",
+ birthday: "02/09/2006",
+ job: "Developer",
+ hometown: "Nghe An - Thai Binh"
+};
+</code></pre>
+</div>
+</div>
+
+<div class="hero-right">
 <img src="avatar.jpg">
 </div>
-
-<h1>Phan Ngọc Quân</h1>
-<p>Developer - Event - Shipper cho mẹ</p>
-
 </header>
 
-<div class="container">
+<section id="about" class="fade">
+<h2>Một chút về tôi</h2>
+<p>Tôi là một người khá khó để định nghĩa rõ ràng. Có lúc nói rất nhiều, có lúc lại im lặng. Tôi có thể lạnh với người lạ nhưng lại rất khùng với những người thân thiết.</p>
+<p>Tôi thích sự chỉnh chu, thích sự nhẹ nhàng, thích thể thao, hát, nấu ăn và làm việc nhà.</p>
+<p>Tôi không phải là người quá giỏi, nhưng tôi là người luôn cố gắng và đang đi từng bước về phía tương lai của mình.</p>
+</section>
 
-<div class="card">
-<h2>👤 Thông tin cá nhân</h2>
-<p><b>Ngày sinh:</b> 02 / 09 / 2006</p>
-<p><b>Nơi sinh:</b> TP.HCM (Bình Dương cũ)</p>
-<p><b>Quê quán:</b> Nghệ An - Thái Bình</p>
-</div>
-
-<div class="card blog">
-    <h2>📝 Một chút về tôi</h2>
-
-<p>Xin chào, nếu bạn đang đọc những dòng này thì có lẽ bạn vừa ghé qua blog cá nhân nhỏ của tôi.</p>
-
-<p>Tôi là Phan Ngọc Quân. Nếu phải mô tả ngắn gọn về bản thân thì chắc chỉ có thể nói rằng tôi là một người khá khó đoán. Có lúc tôi hướng nội, thích ở một mình và làm việc với máy tính. Nhưng cũng có lúc tôi lại hướng ngoại và có thể nói chuyện rất thoải mái với những người thân thiết.</p>
-
-<p>Với người lạ tôi thường khá trầm và ít nói. Không phải vì khó gần, chỉ đơn giản là tôi cần thời gian để cảm thấy thoải mái hơn khi nói chuyện. Nhưng khi đã thân rồi thì tôi có thể nói khá nhiều và đôi khi cũng hơi khùng một chút.</p>
-
-<p>Tôi thích sự chỉn chu, đặc biệt là trong lời nói và cách cư xử. Tôi tin rằng cách mình nói chuyện với người khác cũng thể hiện rất nhiều về con người của mình.</p>
-
-<p>Tôi thích chơi thể thao, thích hát dù không chắc là hát hay, và thỉnh thoảng cũng thích vào bếp nấu ăn. Món ăn tôi thích nhất là bún bò Huế. Ngoài ra tôi cũng biết làm việc nhà vì tôi nghĩ đó là một kỹ năng cơ bản.</p>
-
-<p>Gia đình của tôi không phải lúc nào cũng êm ấm như nhiều gia đình khác. Nhưng chính vì vậy mà tôi càng mong sau này có thể xây dựng một gia đình thật sự ấm áp cho riêng mình.</p>
-
-<p>Còn về gu bạn gái thì thật ra tôi không có tiêu chuẩn cụ thể nào cả. Miễn là thích là được. Nhưng điều tôi trân trọng nhất là một cô gái yêu tôi và vẫn được là chính mình khi ở bên cạnh tôi.</p>
-
-<p>Tôi không phải là một người quá đặc biệt, cũng không phải người giỏi nhất trong bất cứ điều gì. Tôi chỉ là một người đang cố gắng từng ngày để trở nên tốt hơn một chút so với ngày hôm qua.</p>
+<section class="fade">
+<h2>Gửi ai đó trong tương lai</h2>
 
 <p>
-Gửi một người nào đó trong tương lai, xa hơn một chút thì có lẽ là người sẽ cùng anh đi rất lâu về sau. Anh không biết chúng ta sẽ gặp nhau vào thời điểm nào của cuộc đời, nhưng anh tin mỗi cuộc gặp gỡ đều có thời điểm riêng của nó.
+Có thể ở một thời điểm nào đó trong tương lai, khi em vô tình đọc được những dòng này,
+anh vẫn đang là một người bình thường, vẫn đang cố gắng mỗi ngày, vẫn đang đi từng bước
+trên con đường của mình.
 </p>
 
 <p>
-Hiện tại anh vẫn đang sống cuộc sống của mình, học thêm nhiều thứ, làm việc chăm chỉ hơn một chút và cố gắng trưởng thành từng ngày. Không phải vì ai ép buộc, cũng không phải vì muốn chứng minh điều gì, chỉ là anh muốn khi đứng trước em trong tương lai anh có thể tự tin rằng anh đã cố gắng sống tử tế với cuộc đời của mình.
+Anh không biết cuộc sống sau này sẽ như thế nào, cũng không biết chúng ta sẽ gặp nhau
+trong hoàn cảnh nào. Nhưng anh hy vọng lúc đó anh đã đủ trưởng thành, đủ bình tĩnh,
+và đủ bản lĩnh để có thể nắm tay em đi qua những ngày bình thường của cuộc đời.
 </p>
 
 <p>
-Nếu một ngày chúng ta thật sự gặp nhau và bắt đầu một câu chuyện nào đó, anh hy vọng lúc đó cả hai đều là phiên bản tốt hơn của chính mình. Không cần phải hoàn hảo, chỉ cần đủ chân thành để đi cùng nhau một quãng đường dài.
+Anh không hứa sẽ cho em một cuộc sống hoàn hảo, nhưng anh có thể hứa anh sẽ luôn cố gắng,
+cố gắng làm việc, cố gắng trưởng thành, cố gắng trở thành một người đàn ông mà sau này
+em có thể tự hào khi đứng cạnh.
 </p>
 
 <p>
-Cho anh thêm một chút thời gian nhé. Anh vẫn đang đi từng bước một trên con đường của mình. Và biết đâu một ngày nào đó, giữa rất nhiều người trên thế giới này, anh lại tình cờ gặp được em theo một cách rất tự nhiên.
+Nếu sau này em có đọc được đoạn này, thì có lẽ lúc đó chúng ta đã gặp nhau rồi,
+hoặc cũng có thể vẫn chưa. Nhưng dù thế nào đi nữa, anh vẫn đang cố gắng mỗi ngày
+cho tương lai của mình, và có thể là cho cả tương lai của chúng ta.
 </p>
-</div>
-
-<div class="card childhood">
-<h2>📷 Một góc nhỏ tuổi thơ</h2>
-<p>Một tấm ảnh lúc nhỏ của tôi.</p>
-<img src="Childhood.jpg">
-</div>
-
-<div class="card">
-<h2>🎯 Kỹ năng</h2>
-
-<div class="skill">Developer<div class="bar"><div style="width:80%"></div></div></div>
-<div class="skill">Event<div class="bar"><div style="width:70%"></div></div></div>
-<div class="skill">Cooking<div class="bar"><div style="width:60%"></div></div></div>
-<div class="skill">Housework<div class="bar"><div style="width:90%"></div></div></div>
-
-</div>
-
-<div class="card">
-<h2>🧠 Timeline</h2>
-
-<div class="timeline-item">2006 - Sinh ra</div>
-<div class="timeline-item">2020 - Bắt đầu học công nghệ</div>
-<div class="timeline-item">2023 - Làm dev</div>
-<div class="timeline-item">2026 - Tạo blog cá nhân</div>
-
-</div>
-
-<div class="card contact">
-    <h2>📬 Liên hệ</h2>
 
 <p>
-<a href="mailto:phanquan.work@gmail.com">
-<i class="fa-solid fa-envelope"></i> phanquan.work@gmail.com
-</a>
+Cho anh thêm một chút thời gian nhé.
 </p>
 
-<div class="social">
+</section>
 
-<a href="https://www.facebook.com/denisphan.029" target="_blank">
-<i class="fab fa-facebook"></i>
-</a>
+<section class="fade">
+<h2>Timeline | Kỹ năng</h2>
+<div class="timeline-skill">
+<div class="timeline-box">
+<div class="timeline-item"><b>2006</b> - Sinh ra</div>
+<div class="timeline-item"><b>2021</b> - Học lập trình</div>
+<div class="timeline-item"><b>2024</b> - Làm Developer</div>
+</div>
 
-<a href="https://www.tiktok.com/@_user20906?_r=1&_t=ZS-94lXRDL9lRP" target="_blank">
-<i class="fab fa-tiktok"></i>
-</a>
+<div class="skill-box">
+<div class="skills">
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>NodeJS</span>
+<span>React</span>
+</div>
+</div>
+</div>
+</section>
 
+<section class="fade">
+<h2>Tech Stack</h2>
+<div class="tech">
+<img src="https://skillicons.dev/icons?i=html,css,js,nodejs,react,git,github,vscode"/>
+</div>
+</section>
+
+<section class="fade">
+<h2>Projects</h2>
+<div class="projects">
+<div class="project-card">
+<img src="https://media.tenor.com/DimzPZMypFcAAAAC/laptop.gif">
+<p>Website Blog cá nhân</p>
+</div>
+<div class="project-card">
+<img src="https://media.tenor.com/qJ5evVs-_uUAAAAC/coding.gif">
+<p>API NodeJS</p>
+</div>
+<div class="project-card">
+<img src="https://media.tenor.com/NOYF3f82b_gAAAAC/programmer.gif">
+<p>Portfolio Website</p>
+</div>
+</div>
+</section>
+
+<section class="fade">
+<h2>Tuổi thơ & Ngân hàng</h2>
+<div class="personal-container">
+
+<div>
+<img src="childhood.jpg" class="childhood-img">
+<p style="text-align:center;">Ảnh tuổi thơ của tôi</p>
+</div>
+
+<div class="bank-card">
+<div class="bank-number">8843 9633 97</div>
+<div class="bank-name">BIDV Bank</div>
+<div class="bank-holder">Phan Ngọc Quân</div>
 </div>
 
 </div>
+</section>
 
-<div class="card map">
-
-<h2>📍 Vị trí hiện tại</h2>
-
-<iframe width="100%" height="300" src="https://maps.google.com/maps?q=binh%20duong&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+<section class="fade">
+<h2>Terminal</h2>
+<div class="terminal">
+Loading life...<br>
+Developer mode activated<br>
+Building future...<br>
+Success.
 
 </div>
+</section>
 
-</div>
+<section class="fade">
+<h2>Vị trí của tôi</h2>
+<iframe 
+src="https://maps.google.com/maps?q=Binh%20Chuan%2034%20Binh%20Duong&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%" height="300" style="border-radius:10px;"></iframe>
+</section>
+
+<section id="contact" style="text-align:center;" class="fade">
+<h2>Liên hệ</h2>
+<p>Email: phanquan.work@gmail.com</p>
+<i class="fab fa-facebook" style="font-size:26px;margin:10px;color:#38bdf8;"></i>
+<i class="fab fa-instagram" style="font-size:26px;margin:10px;color:#38bdf8;"></i>
+<i class="fab fa-tiktok" style="font-size:26px;margin:10px;color:#38bdf8;"></i>
+</section>
 
 <footer>
-
 <p>© 2026 Phan Ngọc Quân</p>
-<p>Built with code</p>
-
+<p>Lượt truy cập: <span id="visit">0</span></p>
+<p>Đang online: <span id="online"></span></p>
 </footer>
 
+<div id="topBtn">Top</div>
+
 <script>
+new Typed(".typing", {
+strings: ["Phan Ngọc Quân", "Developer", "Web Developer"],
+typeSpeed: 70,
+backSpeed: 40,
+loop: true
+});
+</script>
 
-const cards=document.querySelectorAll(".card");
+<script>
+let count = localStorage.getItem('visit_count') || 0;
+count++;
+localStorage.setItem('visit_count', count);
+document.getElementById('visit').innerText = count;
+document.getElementById('online').innerText = Math.floor(Math.random()*10)+1;
+</script>
 
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show")
+<script>
+document.getElementById("topBtn").onclick = ()=>{
+window.scrollTo({top:0, behavior:'smooth'});
+};
+</script>
+
+<script>
+setTimeout(()=>{document.getElementById("loader").style.display="none";},1000);
+</script>
+
+<script>
+function toggleTheme(){
+document.body.classList.toggle("light");
 }
-})
-});
+</script>
 
-cards.forEach(card=>{
-observer.observe(card)
-});
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+let letters = "01".split("");
+let fontSize = 14;
+let columns = canvas.width/fontSize;
+let drops = [];
+for(let x=0;x<columns;x++) drops[x]=1;
+function draw(){
+ctx.fillStyle="rgba(2,6,23,.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="#0f0";
+ctx.font=fontSize+"px monospace";
+for(let i=0;i<drops.length;i++){
+let text = letters[Math.floor(Math.random()*letters.length)];
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+drops[i]=0;
+drops[i]++;
+}
+}
+setInterval(draw,33);
+</script>
 
+<script>
+const faders = document.querySelectorAll(".fade");
+window.addEventListener("scroll", ()=>{
+faders.forEach(sec=>{
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.classList.add("show");
+}
+});
+});
+</script>
+
+<script>
+window.addEventListener('scroll', ()=>{
+let scrollTop = document.documentElement.scrollTop;
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+document.getElementById('progress').style.width = (scrollTop/height)*100 + "%";
+});
+</script>
+
+<script>
+document.addEventListener("mousemove", e=>{
+const cursor = document.querySelector(".cursor");
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+});
 </script>
 
 </body>
